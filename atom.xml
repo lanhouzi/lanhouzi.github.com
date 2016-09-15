@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.lanhouzi.net/"/>
-  <updated>2016-09-15T16:39:39.111Z</updated>
+  <updated>2016-09-15T17:11:20.850Z</updated>
   <id>http://www.lanhouzi.net/</id>
   
   <author>
@@ -16,21 +16,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用 Highcharts 打造一款高大上的时钟</title>
+    <title>The Highcharts Clock</title>
     <link href="http://www.lanhouzi.net/2016/09/15/a-clock-powered-by-highcharts/"/>
     <id>http://www.lanhouzi.net/2016/09/15/a-clock-powered-by-highcharts/</id>
     <published>2016-09-15T15:36:25.000Z</published>
-    <updated>2016-09-15T16:39:39.111Z</updated>
+    <updated>2016-09-15T17:11:20.850Z</updated>
     
     <content type="html"><![CDATA[<h2 id="用-Highcharts-打造一款高大上的时钟">
   <a href="#用-Highcharts-打造一款高大上的时钟" class="headerlink" title="用 Highcharts 打造一款高大上的时钟"></a>用 Highcharts 打造一款高大上的时钟</h2>
 <blockquote>
-  <p>环境/工具：<a href="0">jQuery1.83+</a>，<a href="1">Highcharts4.2.6</a>，<a href="2">Highcharts-more4.2.6</a></p>
+  <p>环境/工具：<a href="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js" target="_blank" rel="external">jQuery1.83+</a>，<a href="http://cdn.hcharts.cn/highcharts/highcharts.js" target="_blank" rel="external">Highcharts4.2.6</a>，<a href="http://cdn.hcharts.cn/highcharts/highcharts-more.js" target="_blank" rel="external">Highcharts-more4.2.6</a></p>
 </blockquote>
 <h3 id="废话不说，先看效果。">
-  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/highcharts-clock.html">先看效果</a>。</h3>
-<p><img src="3" alt="highcharts clock"></p>
-<hr>
+  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/highcharts-clock/">先看效果</a>。</h3>
+<h2>
+  <a href="#" class="headerlink"></a><img src="http://lanhouzi.qiniudn.com/hexo/tools/highcharts-clock.png" alt="highcharts clock"></h2>
 <p>下面开始撸代码</p>
 <h3 id="1-html">
   <a href="#1-html" class="headerlink" title="1. html"></a>1. html</h3>
@@ -192,10 +192,10 @@
     <link href="http://www.lanhouzi.net/2016/03/31/windows-remote-connection-unbutu-15.10/"/>
     <id>http://www.lanhouzi.net/2016/03/31/windows-remote-connection-unbutu-15.10/</id>
     <published>2016-03-30T17:18:02.000Z</published>
-    <updated>2016-09-15T16:25:01.928Z</updated>
+    <updated>2016-09-15T17:09:39.318Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="使用-Windows-远程桌面连接-工具，远-程连接-Unbutu-Kylin-15-10-操作系统">
-  <a href="#使用-Windows-远程桌面连接-工具，远-程连接-Unbutu-Kylin-15-10-操作系统" class="headerlink" title="使用 Windows 远程桌面连接 工具，远 程连接 Unbutu Kylin 15.10 操作系统"></a>使用 Windows 远程桌面连接 工具，远 程连接 Unbutu Kylin 15.10 操作系统</h2>
+    <content type="html"><![CDATA[<h2 id="使用-Windows-远程桌面连接-工具，远程连接-Unbutu-Kylin-15-10-操作系统">
+  <a href="#使用-Windows-远程桌面连接-工具，远程连接-Unbutu-Kylin-15-10-操作系统" class="headerlink" title="使用 Windows 远程桌面连接 工具，远程连接 Unbutu Kylin 15.10 操作系统"></a>使用 Windows 远程桌面连接 工具，远程连接 Unbutu Kylin 15.10 操作系统</h2>
 <blockquote>
   <p>环境/工具：Windows 7+ 一台，<a href="http://www.ubuntukylin.com/downloads/" target="_blank" rel="external">Unbutu Kylin 15.10</a> 一台</p>
 </blockquote>
@@ -277,8 +277,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;使用-Windows-远程桌面连接-工具，远-程连接-Unbutu-Kylin-15-10-操作系统&quot;&gt;
-  &lt;a href=&quot;#使用-Windows-远程桌面连接-工具，远-程连接-Unbutu-Kylin-15-10-操作系统&quot; class=&quot;headerli
+      &lt;h2 id=&quot;使用-Windows-远程桌面连接-工具，远程连接-Unbutu-Kylin-15-10-操作系统&quot;&gt;
+  &lt;a href=&quot;#使用-Windows-远程桌面连接-工具，远程连接-Unbutu-Kylin-15-10-操作系统&quot; class=&quot;headerlink
     
     </summary>
     
@@ -294,13 +294,12 @@
     <link href="http://www.lanhouzi.net/2016/03/26/convert-image-to-css3/"/>
     <id>http://www.lanhouzi.net/2016/03/26/convert-image-to-css3/</id>
     <published>2016-03-26T15:58:30.000Z</published>
-    <updated>2016-09-15T16:26:23.807Z</updated>
+    <updated>2016-09-15T16:53:17.177Z</updated>
     
     <content type="html"><![CDATA[<h2 id="获取图片像素颜色，转换为CSS3-box-shadow">
   <a href="#获取图片像素颜色，转换为CSS3-box-shadow" class="headerlink" title="获取图片像素颜色，转换为CSS3 box-shadow"></a>获取图片像素颜色，转换为CSS3 box-shadow</h2>
-<blockquote>
-  <p>废话不说，<a href="http://www.lanhouzi.net/tools/image2css3.html">先看效果</a>。</p>
-</blockquote>
+<h3 id="废话不说，先看效果。">
+  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/image2css3/">先看效果</a>。</h3>
 <p><img src="http://lanhouzi.qiniudn.com/hexo/tools/image2css3.png" alt="image2css3"></p>
 <h3 id="什么是-CSS3-box-shadow？">
   <a href="#什么是-CSS3-box-shadow？" class="headerlink" title="什么是 CSS3 box-shadow？"></a>什么是 <strong>CSS3 <a href="http://www.w3school.com.cn/cssref/pr_box-shadow.asp" target="_blank" rel="external">box-shadow</a></strong>？</h3>
@@ -484,6 +483,41 @@
       <category term="IIS" scheme="http://www.lanhouzi.net/tags/IIS/"/>
     
       <category term="负载均衡" scheme="http://www.lanhouzi.net/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello Monkey</title>
+    <link href="http://www.lanhouzi.net/2015/07/17/hello-monkey/"/>
+    <id>http://www.lanhouzi.net/2015/07/17/hello-monkey/</id>
+    <published>2015-07-17T15:52:42.000Z</published>
+    <updated>2016-09-15T17:08:16.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://www.lanhouzi.net/">Blue Monkey</a>.</p>
+<h3 id="www-lanhouzi-net">
+  <a href="#www-lanhouzi-net" class="headerlink" title="www.lanhouzi.net"></a>www.lanhouzi.net</h3>
+<figure class="highlight bash">
+  <table>
+    <tr>
+      <td class="gutter"><pre><div class="line">1</div></pre></td>
+      <td class="code"><pre><div class="line">~~ 博客正在开发中… Powered by Hexo</div></pre></td>
+    </tr>
+  </table>
+</figure>
+<p><img src="http://lanhouzi.qiniudn.com/lanhouzi/image/go.jpg" alt="这个猴子不太蓝"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;http://www.lanhouzi.net/&quot;&gt;Blue Monkey&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;www-lanhouzi-net&quot;&gt;
+  &lt;a href=&quot;#www-lanhouzi-net&quot; class=&quot;header
+    
+    </summary>
+    
+    
+      <category term="Blue Monkey" scheme="http://www.lanhouzi.net/tags/Blue-Monkey/"/>
+    
+      <category term="蓝猴子" scheme="http://www.lanhouzi.net/tags/%E8%93%9D%E7%8C%B4%E5%AD%90/"/>
     
   </entry>
   
