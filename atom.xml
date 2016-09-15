@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.lanhouzi.net/"/>
-  <updated>2016-09-15T17:11:20.850Z</updated>
+  <updated>2016-09-15T17:43:07.636Z</updated>
   <id>http://www.lanhouzi.net/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.lanhouzi.net/2016/09/15/a-clock-powered-by-highcharts/"/>
     <id>http://www.lanhouzi.net/2016/09/15/a-clock-powered-by-highcharts/</id>
     <published>2016-09-15T15:36:25.000Z</published>
-    <updated>2016-09-15T17:11:20.850Z</updated>
+    <updated>2016-09-15T17:43:07.636Z</updated>
     
     <content type="html"><![CDATA[<h2 id="用-Highcharts-打造一款高大上的时钟">
   <a href="#用-Highcharts-打造一款高大上的时钟" class="headerlink" title="用 Highcharts 打造一款高大上的时钟"></a>用 Highcharts 打造一款高大上的时钟</h2>
@@ -28,7 +28,7 @@
   <p>环境/工具：<a href="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js" target="_blank" rel="external">jQuery1.83+</a>，<a href="http://cdn.hcharts.cn/highcharts/highcharts.js" target="_blank" rel="external">Highcharts4.2.6</a>，<a href="http://cdn.hcharts.cn/highcharts/highcharts-more.js" target="_blank" rel="external">Highcharts-more4.2.6</a></p>
 </blockquote>
 <h3 id="废话不说，先看效果。">
-  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/highcharts-clock/">先看效果</a>。</h3>
+  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/highcharts-clock">先看效果</a>。</h3>
 <h2>
   <a href="#" class="headerlink"></a><img src="http://lanhouzi.qiniudn.com/hexo/tools/highcharts-clock.png" alt="highcharts clock"></h2>
 <p>下面开始撸代码</p>
@@ -294,12 +294,12 @@
     <link href="http://www.lanhouzi.net/2016/03/26/convert-image-to-css3/"/>
     <id>http://www.lanhouzi.net/2016/03/26/convert-image-to-css3/</id>
     <published>2016-03-26T15:58:30.000Z</published>
-    <updated>2016-09-15T16:53:17.177Z</updated>
+    <updated>2016-09-15T17:43:05.701Z</updated>
     
     <content type="html"><![CDATA[<h2 id="获取图片像素颜色，转换为CSS3-box-shadow">
   <a href="#获取图片像素颜色，转换为CSS3-box-shadow" class="headerlink" title="获取图片像素颜色，转换为CSS3 box-shadow"></a>获取图片像素颜色，转换为CSS3 box-shadow</h2>
 <h3 id="废话不说，先看效果。">
-  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/image2css3/">先看效果</a>。</h3>
+  <a href="#废话不说，先看效果。" class="headerlink" title="废话不说，先看效果。"></a>废话不说，<a href="http://www.lanhouzi.net/tools/image2css3">先看效果</a>。</h3>
 <p><img src="http://lanhouzi.qiniudn.com/hexo/tools/image2css3.png" alt="image2css3"></p>
 <h3 id="什么是-CSS3-box-shadow？">
   <a href="#什么是-CSS3-box-shadow？" class="headerlink" title="什么是 CSS3 box-shadow？"></a>什么是 <strong>CSS3 <a href="http://www.w3school.com.cn/cssref/pr_box-shadow.asp" target="_blank" rel="external">box-shadow</a></strong>？</h3>
