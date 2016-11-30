@@ -1,1 +1,150 @@
-<!DOCTYPE HTML PUBLIC><html><head><meta charset="utf-8"><title>用 Highcharts 打造一款高大上的时钟</title><script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script><script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script><script src="http://cdn.hcharts.cn/highcharts/highcharts-more.js"></script></head><body><div id="container" style="width:400px;height:400px;margin:0 auto"></div><script type="text/javascript">$(function(){function t(){var t=new Date;return{hours:t.getHours()+t.getMinutes()/60,minutes:12*t.getMinutes()/60+12*t.getSeconds()/3600,seconds:12*t.getSeconds()/60}}function e(t,e){return new Array((e||2)+1-String(t).length).join(0)+t}var i=t();$("#container").highcharts({chart:{type:"gauge",plotBackgroundColor:null,plotBackgroundImage:null,plotBorderWidth:0,plotShadow:!1,height:400},credits:{enabled:!1},title:{text:"The Highcharts clock"},pane:{background:[{},{backgroundColor:Highcharts.svg?{radialGradient:{cx:.5,cy:-.4,r:1.9},stops:[[.5,"rgba(255, 255, 255, 0.2)"],[.5,"rgba(200, 200, 200, 0.2)"]]}:null}]},yAxis:{labels:{distance:-20},min:0,max:12,lineWidth:0,showFirstLabel:!1,minorTickInterval:"auto",minorTickWidth:1,minorTickLength:5,minorTickPosition:"inside",minorGridLineWidth:0,minorTickColor:"#666",tickInterval:1,tickWidth:2,tickPosition:"inside",tickLength:10,tickColor:"#666",title:{text:"Powered by<br/>Highcharts",style:{color:"#BBB",fontWeight:"normal",fontSize:"8px",lineHeight:"10px"},y:10}},tooltip:{formatter:function(){return this.series.chart.tooltipText}},series:[{data:[{id:"hour",y:i.hours,dial:{radius:"60%",baseWidth:4,baseLength:"95%",rearLength:0}},{id:"minute",y:i.minutes,dial:{baseLength:"95%",rearLength:0}},{id:"second",y:i.seconds,dial:{radius:"100%",baseWidth:1,rearLength:"20%"}}],animation:!1,dataLabels:{enabled:!1}}]},function(n){setInterval(function(){i=t();var a=n.get("hour"),o=n.get("minute"),r=n.get("second"),s=0!==i.seconds&&{easing:"easeOutElastic"};n.tooltipText=e(Math.floor(i.hours),2)+":"+e(Math.floor(5*i.minutes),2)+":"+e(5*i.seconds,2),a.update(i.hours,!0,s),o.update(i.minutes,!0,s),r.update(i.seconds,!0,s)},1e3)})}),$.extend($.easing,{easeOutElastic:function(t,e,i,n,a){var o=1.70158,r=0,s=n;return 0===e?i:1==(e/=a)?i+n:(r||(r=.3*a),s<Math.abs(n)?(s=n,o=r/4):o=r/(2*Math.PI)*Math.asin(n/s),s*Math.pow(2,-10*e)*Math.sin((e*a-o)*(2*Math.PI)/r)+n+i)}})</script><script src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></body></html>
+<!DOCTYPE HTML PUBLIC>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>用 Highcharts 打造一款高大上的时钟</title>
+  <script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+  <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+  <script src="http://cdn.hcharts.cn/highcharts/highcharts-more.js"></script>
+</head>
+
+<body>
+  <div id="container" style="width:400px;height:400px;margin:0 auto"></div>
+  <script type="text/javascript">
+    $(function() {
+      function t() {
+        var t = new Date;
+        return {
+          hours: t.getHours() + t.getMinutes() / 60,
+          minutes: 12 * t.getMinutes() / 60 + 12 * t.getSeconds() / 3600,
+          seconds: 12 * t.getSeconds() / 60
+        }
+      }
+
+      function e(t, e) {
+        return new Array((e || 2) + 1 - String(t).length).join(0) + t
+      }
+      var i = t();
+      $("#container").highcharts({
+        chart: {
+          type: "gauge",
+          plotBackgroundColor: null,
+          plotBackgroundImage: null,
+          plotBorderWidth: 0,
+          plotShadow: !1,
+          height: 400
+        },
+        credits: {
+          enabled: !1
+        },
+        title: {
+          text: "The Highcharts clock"
+        },
+        pane: {
+          background: [{}, {
+            backgroundColor: Highcharts.svg ? {
+              radialGradient: {
+                cx: .5,
+                cy: -.4,
+                r: 1.9
+              },
+              stops: [
+                [.5, "rgba(255, 255, 255, 0.2)"],
+                [.5, "rgba(200, 200, 200, 0.2)"]
+              ]
+            } : null
+          }]
+        },
+        yAxis: {
+          labels: {
+            distance: -20
+          },
+          min: 0,
+          max: 12,
+          lineWidth: 0,
+          showFirstLabel: !1,
+          minorTickInterval: "auto",
+          minorTickWidth: 1,
+          minorTickLength: 5,
+          minorTickPosition: "inside",
+          minorGridLineWidth: 0,
+          minorTickColor: "#666",
+          tickInterval: 1,
+          tickWidth: 2,
+          tickPosition: "inside",
+          tickLength: 10,
+          tickColor: "#666",
+          title: {
+            text: "Powered by<br/>Highcharts",
+            style: {
+              color: "#BBB",
+              fontWeight: "normal",
+              fontSize: "8px",
+              lineHeight: "10px"
+            },
+            y: 10
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return this.series.chart.tooltipText
+          }
+        },
+        series: [{
+          data: [{
+            id: "hour",
+            y: i.hours,
+            dial: {
+              radius: "60%",
+              baseWidth: 4,
+              baseLength: "95%",
+              rearLength: 0
+            }
+          }, {
+            id: "minute",
+            y: i.minutes,
+            dial: {
+              baseLength: "95%",
+              rearLength: 0
+            }
+          }, {
+            id: "second",
+            y: i.seconds,
+            dial: {
+              radius: "100%",
+              baseWidth: 1,
+              rearLength: "20%"
+            }
+          }],
+          animation: !1,
+          dataLabels: {
+            enabled: !1
+          }
+        }]
+      }, function(n) {
+        setInterval(function() {
+          i = t();
+          var a = n.get("hour"),
+            o = n.get("minute"),
+            r = n.get("second"),
+            s = 0 !== i.seconds && {
+              easing: "easeOutElastic"
+            };
+          n.tooltipText = e(Math.floor(i.hours), 2) + ":" + e(Math.floor(5 * i.minutes), 2) + ":" + e(5 * i.seconds, 2), a.update(i.hours, !0, s), o.update(i.minutes, !0, s), r.update(i.seconds, !0, s)
+        }, 1e3)
+      })
+    }), $.extend($.easing, {
+      easeOutElastic: function(t, e, i, n, a) {
+        var o = 1.70158,
+          r = 0,
+          s = n;
+        return 0 === e ? i : 1 == (e /= a) ? i + n : (r || (r = .3 * a), s < Math.abs(n) ? (s = n, o = r / 4) : o = r / (2 * Math.PI) * Math.asin(n / s), s * Math.pow(2, -10 * e) * Math.sin((e * a - o) * (2 * Math.PI) / r) + n + i)
+      }
+    })
+  </script>
+  <script src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+
+</html>

@@ -1,1 +1,139 @@
-<!DOCTYPE HTML PUBLIC><html><head><meta charset="utf-8"><title>图片转 CSS3 box-shadow</title><style type="text/css">body{margin:0;background:#f2f2f0}p{margin:0}.title{color:#FF0;background:#000;text-align:center;font-size:20px;line-height:40px;font-weight:700}.file{position:absolute;width:100%}.filebtn{display:block;position:relative;height:80px;color:#FFF;background:#06980e;font-size:36px;line-height:80px;text-align:center;cursor:pointer;border:3px solid #ccc}.filebtn:hover{background:#04bc0d}.showimg{margin:10px auto 10px auto;-webkit-transition:all .3s;-moz-transition:all .3s;-ms-transition:all .3s;-o-transition:all .3s;transition:all .3s}.showimg span{width:1px;height:1px;display:block;margin:-1px 0 0 -1px}.css_code{margin:10px;padding:10px;display:none;border:1px solid #FC0;font-size:12px;background:#F1F1F1;white-space:pre-wrap;-ms-word-wrap:break-word;word-wrap:break-word;height:200px;overflow:auto}.css_code:hover{background:#DEFEDE}</style></head><body><p class="title">获取图片像素颜色,转换为CSS3 box-shadow</p><p><input type="file" class="file" id="img"><label class="filebtn" for="img" title="JPG,GIF,PNG">请选择图片(小于1M)</label></p><p class="showimg" id="showimg"><span></span></p><p class="css_code" id="css_code"></p><p class="title" id="remark" style="display:none">转换完成之后把目标 &lt;span style=&quot;&quot;&gt;&lt;/span&gt; 的 style 值替换为生成的样式即可。good luck.</p><script type="text/javascript">window.onload=function(){var e=document.createElement("canvas"),t=e.getContext("2d"),a=document.getElementById("showimg"),n=a.getElementsByTagName("span")[0],i=document.getElementById("css_code"),d=document.getElementById("remark");document.getElementById("img").onchange=function(){var l=event.target.files[0];if(l){if(0!==l.type.indexOf("image")&&(l.type||!/\.(?:jpg|png|gif)$/.test(l.name)))return void alert("图片只能是jpg,gif,png");if(l.size>1048576)return void alert("图片不能大于1M");var o=new FileReader;o.readAsDataURL(l),o.onload=function(l){var o=new Image;o.src=l.target.result,o.onload=function(){function l(e,t,a){e=e.toString(16),t=t.toString(16),a=a.toString(16),1===e.length?e="0"+e:"",1===t.length?t="0"+t:"",1===a.length?a="0"+a:"";var n=e+t+a;return e.slice(0,1)===e.slice(1,1)&&t.slice(0,1)===t.slice(1,1)&&a.slice(0,1)===a.slice(1,1)&&(n=e.slice(0,1)+t.slice(0,1)+a.slice(0,1)),n}var o=this.width,r=this.height;e.width=o,e.height=r,t.drawImage(this,0,0,o,r);for(var s=t.getImageData(0,0,o,r),g=[],c=s.data.length,h=0;h<c;h++)if(h%4===0){var m=h/4%o+1,f=Math.floor(h/4/o)+1,p=Math.round(s.data[h+3]/255*100)/100;if(255===s.data[h+3]){var u=l(s.data[h],s.data[h+1],s.data[h+2]);g.push(m+"px "+f+"px #"+u)}else if(p>0){var v=s.data[h]+","+s.data[h+1]+","+s.data[h+2]+","+p;g.push(m+"px "+f+"px rgba("+v+")")}}a.style.width=o+"px",a.style.height=r+"px",n.style.boxShadow=g.join(","),i.style.display="block",i.innerHTML="box-shadow: "+g.join(","),d.style.display="block"}}}}}</script><script src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></body></html>
+<!DOCTYPE HTML PUBLIC>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>图片转 CSS3 box-shadow</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      background: #f2f2f0
+    }
+    
+    p {
+      margin: 0
+    }
+    
+    .title {
+      color: #FF0;
+      background: #000;
+      text-align: center;
+      font-size: 20px;
+      line-height: 40px;
+      font-weight: 700
+    }
+    
+    .file {
+      position: absolute;
+      width: 100%
+    }
+    
+    .filebtn {
+      display: block;
+      position: relative;
+      height: 80px;
+      color: #FFF;
+      background: #06980e;
+      font-size: 36px;
+      line-height: 80px;
+      text-align: center;
+      cursor: pointer;
+      border: 3px solid #ccc
+    }
+    
+    .filebtn:hover {
+      background: #04bc0d
+    }
+    
+    .showimg {
+      margin: 10px auto 10px auto;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -ms-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s
+    }
+    
+    .showimg span {
+      width: 1px;
+      height: 1px;
+      display: block;
+      margin: -1px 0 0 -1px
+    }
+    
+    .css_code {
+      margin: 10px;
+      padding: 10px;
+      display: none;
+      border: 1px solid #FC0;
+      font-size: 12px;
+      background: #F1F1F1;
+      white-space: pre-wrap;
+      -ms-word-wrap: break-word;
+      word-wrap: break-word;
+      height: 200px;
+      overflow: auto
+    }
+    
+    .css_code:hover {
+      background: #DEFEDE
+    }
+  </style>
+</head>
+
+<body>
+  <p class="title">获取图片像素颜色,转换为CSS3 box-shadow</p>
+  <p><input type="file" class="file" id="img"><label class="filebtn" for="img" title="JPG,GIF,PNG">请选择图片(小于1M)</label></p>
+  <p class="showimg" id="showimg"><span></span></p>
+  <p class="css_code" id="css_code"></p>
+  <p class="title" id="remark" style="display:none">转换完成之后把目标 &lt;span style=&quot;&quot;&gt;&lt;/span&gt; 的 style 值替换为生成的样式即可。good luck.</p>
+  <script type="text/javascript">
+    window.onload = function() {
+      var e = document.createElement("canvas"),
+        t = e.getContext("2d"),
+        a = document.getElementById("showimg"),
+        n = a.getElementsByTagName("span")[0],
+        i = document.getElementById("css_code"),
+        d = document.getElementById("remark");
+      document.getElementById("img").onchange = function() {
+        var l = event.target.files[0];
+        if (l) {
+          if (0 !== l.type.indexOf("image") && (l.type || !/\.(?:jpg|png|gif)$/.test(l.name))) return void alert("图片只能是jpg,gif,png");
+          if (l.size > 1048576) return void alert("图片不能大于1M");
+          var o = new FileReader;
+          o.readAsDataURL(l), o.onload = function(l) {
+            var o = new Image;
+            o.src = l.target.result, o.onload = function() {
+              function l(e, t, a) {
+                e = e.toString(16), t = t.toString(16), a = a.toString(16), 1 === e.length ? e = "0" + e : "", 1 === t.length ? t = "0" + t : "", 1 === a.length ? a = "0" + a : "";
+                var n = e + t + a;
+                return e.slice(0, 1) === e.slice(1, 1) && t.slice(0, 1) === t.slice(1, 1) && a.slice(0, 1) === a.slice(1, 1) && (n = e.slice(0, 1) + t.slice(0, 1) + a.slice(0, 1)), n
+              }
+              var o = this.width,
+                r = this.height;
+              e.width = o, e.height = r, t.drawImage(this, 0, 0, o, r);
+              for (var s = t.getImageData(0, 0, o, r), g = [], c = s.data.length, h = 0; h < c; h++)
+                if (h % 4 === 0) {
+                  var m = h / 4 % o + 1,
+                    f = Math.floor(h / 4 / o) + 1,
+                    p = Math.round(s.data[h + 3] / 255 * 100) / 100;
+                  if (255 === s.data[h + 3]) {
+                    var u = l(s.data[h], s.data[h + 1], s.data[h + 2]);
+                    g.push(m + "px " + f + "px #" + u)
+                  } else if (p > 0) {
+                    var v = s.data[h] + "," + s.data[h + 1] + "," + s.data[h + 2] + "," + p;
+                    g.push(m + "px " + f + "px rgba(" + v + ")")
+                  }
+                }
+              a.style.width = o + "px", a.style.height = r + "px", n.style.boxShadow = g.join(","), i.style.display = "block", i.innerHTML = "box-shadow: " + g.join(","), d.style.display = "block"
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+
+</html>

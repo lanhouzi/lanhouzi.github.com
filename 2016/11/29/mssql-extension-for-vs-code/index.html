@@ -1,1 +1,459 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>使用 Visual Studio Code 的 MSSQL 扩展 | 蓝猴子</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="Visual Studio Code,mssql extension"><meta name="description" content="使用 Visual Studio Code 的 MSSQL 扩展环境/工具：Windows 10，Visual Studio Code用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；创建和管理连接配置文件和最近使用过的连接；在编写T-SQL脚本是可以"><meta property="og:type" content="article"><meta property="og:title" content="使用 Visual Studio Code 的 MSSQL 扩展"><meta property="og:url" content="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/index.html"><meta property="og:site_name" content="蓝猴子"><meta property="og:description" content="使用 Visual Studio Code 的 MSSQL 扩展环境/工具：Windows 10，Visual Studio Code用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；创建和管理连接配置文件和最近使用过的连接；在编写T-SQL脚本是可以"><meta property="og:image" content="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/1.gif"><meta property="og:updated_time" content="2016-11-30T17:20:45.000Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="使用 Visual Studio Code 的 MSSQL 扩展"><meta name="twitter:description" content="使用 Visual Studio Code 的 MSSQL 扩展环境/工具：Windows 10，Visual Studio Code用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；创建和管理连接配置文件和最近使用过的连接；在编写T-SQL脚本是可以"><meta name="twitter:image" content="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/1.gif"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="/vendor/titillium-web/styles.css"><link rel="stylesheet" href="/vendor/source-code-pro/styles.css"><link rel="stylesheet" href="/css/style.css"><script src="/vendor/jquery/2.0.3/jquery.min.js"></script><link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css"><link rel="stylesheet" href="/vendor/scrollLoading/style.css"><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script></head></html><body><div id="wrap"><header id="header"><div id="header-outer" class="outer"><div class="container"><div class="container-inner"><div id="header-title"><h1 class="logo-wrap"><a href="/" class="logo"></a></h1><h2 class="subtitle-wrap"><p class="subtitle">蓝猴子 | Blue Monkey</p></h2></div><div id="header-inner" class="nav-container"><a id="main-nav-toggle" class="nav-icon fa fa-bars"></a><div class="nav-container-inner"><ul id="main-nav"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/">主页</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/archives/index.html">归档</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/girl/index.html">妹子</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/about/index.html">关于</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://github.com/lanhouzi/">GitHub</a></li></ul><nav id="sub-nav"><div id="search-form-wrap"><div class="search-form"><input type="text" class="st-default-search-input search-form-input" placeholder="搜索"></div><script type="text/javascript">!function(t,e,n,s,c,i,o){t.SwiftypeObject=c,t[c]=t[c]||function(){(t[c].q=t[c].q||[]).push(arguments)},i=e.createElement(n),o=e.getElementsByTagName(n)[0],i.async=1,i.src=s,o.parentNode.insertBefore(i,o)}(window,document,"script","//s.swiftypecdn.com/install/v2/st.js","_st"),_st("install","vtmYuDTkoM2QmWR-UbkQ","2.0.0")</script><style>.st-ui-injected-overlay-container,.st-ui-injected-overlay-container :not(select){font-family:inherit!important}section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading{color:#3b8dbd!important}.st-ui-injected-overlay-container .st-ui-header input[type=text]:focus{border-bottom:2px solid #3b8dbd}.st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link{color:#3b8dbd}.st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow{border-color:#3b8dbd}</style></div></nav></div></div></div></div></div></header><div class="container"><div class="main-body container-inner"><div class="main-body-inner"><section id="main"><div class="main-body-header"><h1 class="header"><a class="page-title-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a></h1></div><div class="main-body-content"><article id="post-mssql-extension-for-vs-code" class="article article-single article-type-post" itemscope itemprop="blogPost"><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name">使用 Visual Studio Code 的 MSSQL 扩展</h1></header><div class="article-subtitle"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="article-date"><time datetime="2016-11-29T15:35:37.000Z" itemprop="datePublished">2016-11-29</time></a><ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mssql-extension/">mssql extension</a></li></ul></div><div class="article-entry" itemprop="articleBody"><h2 id="使用-Visual-Studio-Code-的-MSSQL-扩展"><a href="#使用-Visual-Studio-Code-的-MSSQL-扩展" class="headerlink" title="使用 Visual Studio Code 的 MSSQL 扩展"></a>使用 Visual Studio Code 的 MSSQL 扩展</h2><blockquote><p>环境/工具：Windows 10，<a href="https://code.visualstudio.com/Download" target="_blank" rel="external">Visual Studio Code</a></p></blockquote><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/1.gif"><h3 id="用于开发Microsoft-SQL-Server，Azure-SQL数据库和SQL数据仓库的扩展，功能如下："><a href="#用于开发Microsoft-SQL-Server，Azure-SQL数据库和SQL数据仓库的扩展，功能如下：" class="headerlink" title="用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下："></a>用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：</h3><ol><li>连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；</li><li>创建和管理连接配置文件和最近使用过的连接；</li><li>在编写T-SQL脚本是可以体验到：智能提示，T-SQL片段，语法高亮，错误校验；</li><li>执行T-SQL脚本；</li><li>数据表格可视化；</li><li>可以将查询结果保存为json或csv格式；</li><li>自定义的扩展选项，包括命令快捷方式等。</li></ol><h3 id="1-安装并启动-VS-Code"><a href="#1-安装并启动-VS-Code" class="headerlink" title="1. 安装并启动 VS Code"></a>1. 安装并启动 VS Code</h3><h3 id="2-安装-mssql-扩展，然后重启-VS-Code"><a href="#2-安装-mssql-扩展，然后重启-VS-Code" class="headerlink" title="2. 安装 mssql 扩展，然后重启 VS Code"></a>2. 安装 mssql 扩展，然后重启 VS Code</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/2.png"><h3 id="3-使用-VS-Code-打开一个扩展名为-sql-的文件，或者使用-ctrl-n-快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。"><a href="#3-使用-VS-Code-打开一个扩展名为-sql-的文件，或者使用-ctrl-n-快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。" class="headerlink" title="3. 使用 VS Code 打开一个扩展名为 sql 的文件，或者使用 (ctrl+n) 快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。"></a>3. 使用 <code>VS Code</code> 打开一个扩展名为 <code>sql</code> 的文件，或者使用 <code>(ctrl+n)</code> 快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。</h3><h3 id="4-通过-F1-或-CTRL-SHIFT-P-快捷键打开命令选项板按，输入-sql-然后选择-MS-SQL-Connect-选项。"><a href="#4-通过-F1-或-CTRL-SHIFT-P-快捷键打开命令选项板按，输入-sql-然后选择-MS-SQL-Connect-选项。" class="headerlink" title="4. 通过 F1 或 CTRL+SHIFT+P 快捷键打开命令选项板按，输入 sql 然后选择 MS SQL: Connect 选项。"></a>4. 通过 <code>F1</code> 或 <code>CTRL+SHIFT+P</code> 快捷键打开命令选项板按，输入 <code>sql</code> 然后选择 <code>MS SQL: Connect</code> 选项。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/3.png"><h3 id="5-然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择-Create-Connection-Profile。"><a href="#5-然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择-Create-Connection-Profile。" class="headerlink" title="5. 然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择 Create Connection Profile。"></a>5. 然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择 <code>Create Connection Profile</code>。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/4.png"><h3 id="6-然后输入一个数据库服务器地址或者机器名。"><a href="#6-然后输入一个数据库服务器地址或者机器名。" class="headerlink" title="6. 然后输入一个数据库服务器地址或者机器名。"></a>6. 然后输入一个数据库服务器地址或者机器名。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/5.png"><h3 id="7-然后输入数据库名称（可选，如果跳过则连接默认数据库）。"><a href="#7-然后输入数据库名称（可选，如果跳过则连接默认数据库）。" class="headerlink" title="7. 然后输入数据库名称（可选，如果跳过则连接默认数据库）。"></a>7. 然后输入数据库名称（可选，如果跳过则连接默认数据库）。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/6.png"><h3 id="8-然后选择身份验证类型，SQL-Login-使用数据库账号密码验证，Integrated：集成验证（Windows-身份验证），选择这种验证方式时将会跳过步骤9、10和11。"><a href="#8-然后选择身份验证类型，SQL-Login-使用数据库账号密码验证，Integrated：集成验证（Windows-身份验证），选择这种验证方式时将会跳过步骤9、10和11。" class="headerlink" title="8. 然后选择身份验证类型，SQL Login :使用数据库账号密码验证，Integrated：集成验证（Windows 身份验证），选择这种验证方式时将会跳过步骤9、10和11。"></a>8. 然后选择身份验证类型，<code>SQL Login</code> :使用数据库账号密码验证，<code>Integrated</code>：集成验证（Windows 身份验证），选择这种验证方式时将会跳过步骤9、10和11。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/7.png"><h3 id="9-然后输入SQL用户名。"><a href="#9-然后输入SQL用户名。" class="headerlink" title="9. 然后输入SQL用户名。"></a>9. 然后输入SQL用户名。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/8.png"><h3 id="10-然后输入SQL密码。"><a href="#10-然后输入SQL密码。" class="headerlink" title="10. 然后输入SQL密码。"></a>10. 然后输入SQL密码。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/9.png"><h3 id="11-然后选择是否需要记住密码。"><a href="#11-然后选择是否需要记住密码。" class="headerlink" title="11. 然后选择是否需要记住密码。"></a>11. 然后选择是否需要记住密码。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/10.png"><h3 id="12-然后输入该连接配置的名称（可选）。"><a href="#12-然后输入该连接配置的名称（可选）。" class="headerlink" title="12. 然后输入该连接配置的名称（可选）。"></a>12. 然后输入该连接配置的名称（可选）。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/11.png"><h3 id="13-完成之后将会出现连接提示信息。"><a href="#13-完成之后将会出现连接提示信息。" class="headerlink" title="13. 完成之后将会出现连接提示信息。"></a>13. 完成之后将会出现连接提示信息。</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/12.png"> <img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/13.png"><hr><h3 id="打开-文件-gt-首选项-gt-用户设置-可以看到已经创建完成的连接配置，当然也可以直接在这里新增-修改-删除连接配置，更多详细的配置说明请参考-官方文档。"><a href="#打开-文件-gt-首选项-gt-用户设置-可以看到已经创建完成的连接配置，当然也可以直接在这里新增-修改-删除连接配置，更多详细的配置说明请参考-官方文档。" class="headerlink" title="打开 文件&gt;首选项&gt;用户设置 可以看到已经创建完成的连接配置，当然也可以直接在这里新增/修改/删除连接配置，更多详细的配置说明请参考 官方文档。"></a>打开 <code>文件&gt;首选项&gt;用户设置</code> 可以看到已经创建完成的连接配置，当然也可以直接在这里新增/修改/删除连接配置，更多详细的配置说明请参考 <a href="https://github.com/Microsoft/vscode-mssql" target="_blank" rel="external">官方文档</a>。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="string">"mssql.connections"</span>: [</div><div class="line">    &#123;</div><div class="line">        <span class="string">"server"</span>: <span class="string">"localhost"</span>,</div><div class="line">        <span class="string">"database"</span>: <span class="string">"NopCommerce3.80"</span>,</div><div class="line">        <span class="string">"authenticationType"</span>: <span class="string">"SqlLogin"</span>,</div><div class="line">        <span class="string">"user"</span>: <span class="string">"sa"</span>,</div><div class="line">        <span class="string">"password"</span>: <span class="string">""</span>,</div><div class="line">        <span class="string">"savePassword"</span>: <span class="literal">true</span>,</div><div class="line">        <span class="string">"profileName"</span>: <span class="string">"NopCommerce3.80"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="string">"server"</span>: <span class="string">"localhost"</span>,</div><div class="line">        <span class="string">"database"</span>: <span class="string">"ReportServerTempDB"</span>,</div><div class="line">        <span class="string">"authenticationType"</span>: <span class="string">"Integrated"</span>,</div><div class="line">        <span class="string">"profileName"</span>: <span class="string">"ReportServerTempDB"</span>,</div><div class="line">        <span class="string">"password"</span>: <span class="string">""</span></div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><img title="mssql_extension" alt="mssql_extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/14.png"></div><footer class="article-footer"><a data-url="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/" data-id="ciw57c28r000seco0v64xfj5t" class="article-share-link"><i class="fa fa-share"></i>分享到</a><div style="display:none"><img id="qrcode" src="http://qr.topscan.com/api.php?text=http://www.lanhouzi.net/"></div><script>!function(e){e("body").on("click",function(){e(".article-share-box.on").removeClass("on")}).on("click",".article-share-link",function(a){a.stopPropagation();var t,i=document.title,o=e(this),r=o.attr("data-url"),s=encodeURIComponent(r),c="article-share-box-"+o.attr("data-id"),n=o.offset();if(e("#"+c).length){if(t=e("#"+c),t.hasClass("on"))return void t.removeClass("on")}else{var l=['<div id="'+c+'" class="article-share-box">','<input class="article-share-input" readonly value="'+r+'">','<div class="article-share-links">','<a href="https://www.facebook.com/sharer.php?u='+s+'" class="article-share-facebook" target="_blank" title="Facebook"></a>','<a href="http://service.weibo.com/share/share.php?url='+s+'" class="article-share-weibo" target="_blank" title="新浪微博"></a>','<a href="http://share.v.t.qq.com/index.php?c=share&a=index&url='+s+"&title="+i+'" class="article-share-tencent-weibo" target="_blank" title="腾讯微博"></a>','<a href="javascript:$.fancybox.open({href:\'#qrcode\',title:\'打开微信扫一扫，然后分享吧！~\'});" class="article-share-weixin" title="微信"></a>',"</div>","</div>"].join("");t=e(l),e("body").append(t);var h="http://qr.topscan.com/api.php?text="+s;e("#qrcode").attr("src",h)}e(".article-share-box.on").hide(),t.css({top:n.top+25,left:n.left}).addClass("on")}).on("click",".article-share-box",function(e){e.stopPropagation()}).on("click",".article-share-box-input",function(){e(this).select()}).on("click",".article-share-box-link",function(e){e.preventDefault(),e.stopPropagation(),window.open(this.href,"article-share-box-window-"+Date.now(),"width=500,height=450")})}(jQuery)</script></footer></div></article><section id="comments"><div class="ds-thread" data-thread-key="2016/11/29/mssql-extension-for-vs-code/" data-title="使用 Visual Studio Code 的 MSSQL 扩展" data-url="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/"></div><style>#ds-thread #ds-reset .ds-textarea-wrapper{background:0 0}#ds-reset .ds-avatar img{box-shadow:none}#ds-reset .ds-gradient-bg{background:#f7f7f7}#ds-thread #ds-reset li.ds-tab a{border-radius:3px}#ds-thread #ds-reset .ds-post-button{color:#fff;border:none;box-shadow:none;background:#d32;text-shadow:none;font-weight:400;font-family:'Microsoft Yahei'}#ds-thread #ds-reset .ds-post-button:hover{color:#fff;background:#DE594C}#ds-thread #ds-reset .ds-post-button:active{background:#d32}#ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current{color:#fff;background:#d32;box-shadow:none;text-shadow:none;font-weight:400}</style></section></div></section><aside id="sidebar"><a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a><div class="sidebar-top"><p>关注我 :</p><ul class="social-links"><li><a class="social-tooltip" title="github" href="https://github.com/lanhouzi" target="_blank"><i class="icon fa fa-github"></i></a></li><li><a class="social-tooltip" title="facebook" href="/" target="_blank"><i class="icon fa fa-facebook"></i></a></li><li><a class="social-tooltip" title="tencent-weibo" href="http://t.qq.com/czieboy" target="_blank"><i class="icon fa fa-tencent-weibo"></i></a></li><li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li></ul></div><nav id="article-nav"><a href="/2016/09/21/highchart-linear-gradient/" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">上一篇</strong><p class="article-nav-title">给 Highcharts 图表的颜色设置线性渐变</p><i class="icon fa fa-chevron-left" id="icon-chevron-left"></i></a></nav><div class="widgets-container"><div class="widget-wrap"><h3 class="widget-title">最新文章</h3><div class="widget"><ul id="recent-post"><li><div class="item-thumbnail"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/mssql_ext/1.gif)" alt="使用 Visual Studio Code 的 MSSQL 扩展" class="thumbnail-image"></span></a></div><div class="item-inner"><p class="item-category"><a class="article-category-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a></p><p class="item-title"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="title">使用 Visual Studio Code 的 MSSQL 扩展</a></p><p class="item-date"><time datetime="2016-11-29T15:35:37.000Z" itemprop="datePublished">2016-11-29</time></p></div></li><li><div class="item-thumbnail"><a href="/2016/09/21/highchart-linear-gradient/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/folder/imageName.png)" alt="给 Highcharts 图表的颜色设置线性渐变" class="thumbnail-image"></span></a></div><div class="item-inner"><p class="item-category"><a class="article-category-link" href="/categories/Highcharts/">Highcharts</a></p><p class="item-title"><a href="/2016/09/21/highchart-linear-gradient/" class="title">给 Highcharts 图表的颜色设置线性渐变</a></p><p class="item-date"><time datetime="2016-09-21T15:43:58.000Z" itemprop="datePublished">2016-09-21</time></p></div></li><li><div class="item-thumbnail"><a href="/2016/09/15/a-clock-powered-by-highcharts/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/tools/highcharts-clock.png)" alt="The Highcharts Clock" class="thumbnail-image"></span></a></div><div class="item-inner"><p class="item-category"><a class="article-category-link" href="/categories/Highcharts/">Highcharts</a></p><p class="item-title"><a href="/2016/09/15/a-clock-powered-by-highcharts/" class="title">The Highcharts Clock</a></p><p class="item-date"><time datetime="2016-09-15T15:36:25.000Z" itemprop="datePublished">2016-09-15</time></p></div></li><li><div class="item-thumbnail"><a href="/2016/08/21/publish-a-website-by-web_deploy/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/iisstart.png)" alt="使用 Web Deploy 工具 发布站点到 IIS" class="thumbnail-image"></span></a></div><div class="item-inner"><p class="item-category"><a class="article-category-link" href="/categories/IIS/">IIS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IIS/Web-Deploy/">Web Deploy</a></p><p class="item-title"><a href="/2016/08/21/publish-a-website-by-web_deploy/" class="title">使用 Web Deploy 工具 发布站点到 IIS</a></p><p class="item-date"><time datetime="2016-08-20T17:38:39.000Z" itemprop="datePublished">2016-08-21</time></p></div></li><li><div class="item-thumbnail"><a href="/2016/04/12/windows-remote-connection-unbutu-15.10-fixed/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/ubuntu_kylin_15.10_13.png)" alt="Windows 远程桌面连接 Unbutu Kylin 15.10 补充" class="thumbnail-image"></span></a></div><div class="item-inner"><p class="item-category"><a class="article-category-link" href="/categories/Unbutu/">Unbutu</a></p><p class="item-title"><a href="/2016/04/12/windows-remote-connection-unbutu-15.10-fixed/" class="title">Windows 远程桌面连接 Unbutu Kylin 15.10 补充</a></p><p class="item-date"><time datetime="2016-04-11T16:35:02.000Z" itemprop="datePublished">2016-04-12</time></p></div></li></ul></div></div><div class="widget-wrap widget-list"><h3 class="widget-title">分类</h3><div class="widget"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/NET/">.NET</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IIS/">IIS</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IIS/Web-Deploy/">Web Deploy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IIS/负载均衡/">负载均衡</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unbutu/">Unbutu</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div></div><div class="widget-wrap widget-list"><h3 class="widget-title">归档</h3><div class="widget"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul></div></div><div class="widget-wrap widget-list"><h3 class="widget-title">标签</h3><div class="widget"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NET/">.NET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blue-Monkey/">Blue Monkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Highcharts/">Highcharts</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IIS/">IIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unbutu/">Unbutu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Deploy/">Web Deploy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mssql-extension/">mssql extension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝猴子/">蓝猴子</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/负载均衡/">负载均衡</a><span class="tag-list-count">1</span></li></ul></div></div><div class="widget-wrap widget-float"><h3 class="widget-title">标签云</h3><div class="widget tagcloud"><a href="/tags/NET/" style="font-size:10px">.NET</a> <a href="/tags/Blue-Monkey/" style="font-size:10px">Blue Monkey</a> <a href="/tags/CSS3/" style="font-size:10px">CSS3</a> <a href="/tags/Highcharts/" style="font-size:20px">Highcharts</a> <a href="/tags/IIS/" style="font-size:20px">IIS</a> <a href="/tags/Unbutu/" style="font-size:20px">Unbutu</a> <a href="/tags/Visual-Studio-Code/" style="font-size:10px">Visual Studio Code</a> <a href="/tags/Web-Deploy/" style="font-size:10px">Web Deploy</a> <a href="/tags/hexo/" style="font-size:10px">hexo</a> <a href="/tags/mssql-extension/" style="font-size:10px">mssql extension</a> <a href="/tags/蓝猴子/" style="font-size:10px">蓝猴子</a> <a href="/tags/负载均衡/" style="font-size:10px">负载均衡</a></div></div><div class="widget-wrap widget-list"><h3 class="widget-title">我的微信</h3><div class="widget"><img src="http://lanhouzi.qiniudn.com/weixin_qrcode.png" width="220px" alt="lanhouzi"></div></div><div class="widget-wrap widget-list"><h3 class="widget-title">链接</h3><div class="widget"><ul><li><a href="http://www.asp.net/" target="_blank">ASP.NET</a></li><li><a href="http://www.hcharts.cn/" target="_blank">HighCharts中文网</a></li><li><a href="https://www.hackster.io/" target="_blank">Hackster.io</a></li><li><a href="https://dev.windows.com/zh-cn/iot/" target="_blank">Windows IoT</a></li><li><a href="http://sentsin.com/" target="_blank">贤心</a></li><li><a href="http://www.peng8.net/" target="_blank">Peng8</a></li><li><a href="https://www.zybuluo.com/" target="_blank">作业部落</a></li><li><a href="http://ear.duomi.com/" target="_blank">邻居的耳朵</a></li><li><a href="http://huaban.com/" target="_blank">花瓣</a></li><li><a href="http://wanimal.lofter.com/" target="_blank">WANIMAL</a></li></ul></div></div></div></aside></div></div></div><footer id="footer"><div class="container"><div class="container-inner"><a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a><div class="credit"><p>&copy; 2016 Blue Monkey</p><p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></div></div></div></footer><script type="text/javascript">var duoshuoQuery={short_name:"lanhouzi"};!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https:":"http:")+"//static.duoshuo.com/embed.js",t.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(t)}()</script><script src="/vendor/fancybox/jquery.fancybox.pack.js"></script><script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script><script src="/vendor/scrollLoading/main.js"></script><script src="/js/main.js"></script></div></body>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>使用 Visual Studio Code 的 MSSQL 扩展 | 蓝猴子</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="keywords" content="Visual Studio Code,mssql extension">
+  <meta name="description" content="使用 Visual Studio Code 的 MSSQL 扩展
+
+  环境/工具：Windows 10，Visual Studio Code
+
+
+  用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：
+
+  连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；
+  创建和管理连接配置文件和最近使">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="使用 Visual Studio Code 的 MSSQL 扩展">
+  <meta property="og:url" content="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/index.html">
+  <meta property="og:site_name" content="蓝猴子">
+  <meta property="og:description" content="使用 Visual Studio Code 的 MSSQL 扩展
+
+  环境/工具：Windows 10，Visual Studio Code
+
+
+  用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：
+
+  连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；
+  创建和管理连接配置文件和最近使">
+  <meta property="og:image" content="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/1.gif">
+  <meta property="og:updated_time" content="2016-11-30T17:26:33.572Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="使用 Visual Studio Code 的 MSSQL 扩展">
+  <meta name="twitter:description" content="使用 Visual Studio Code 的 MSSQL 扩展
+
+  环境/工具：Windows 10，Visual Studio Code
+
+
+  用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：
+
+  连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；
+  创建和管理连接配置文件和最近使">
+  <meta name="twitter:image" content="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/1.gif">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+  <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+  <link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9396934" charset="UTF-8"></script>
+</head>
+
+</html>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div id="header-outer" class="outer">
+        <div class="container">
+          <div class="container-inner">
+            <div id="header-title">
+              <h1 class="logo-wrap">
+                <a href="/" class="logo"></a>
+              </h1>
+              <h2 class="subtitle-wrap">
+                <p class="subtitle">蓝猴子 | Blue Monkey</p>
+              </h2>
+            </div>
+            <div id="header-inner" class="nav-container">
+              <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+              <div class="nav-container-inner">
+                <ul id="main-nav">
+                  <li class="main-nav-list-item"><a class="main-nav-list-link" href="/">主页</a></li>
+                  <li class="main-nav-list-item"><a class="main-nav-list-link" href="/archives/index.html">归档</a></li>
+                  <li class="main-nav-list-item"><a class="main-nav-list-link" href="/girl/index.html">妹子</a></li>
+                  <li class="main-nav-list-item"><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+                  <li class="main-nav-list-item"><a class="main-nav-list-link" href="https://github.com/lanhouzi/">GitHub</a></li>
+                </ul>
+                <nav id="sub-nav">
+                  <div id="search-form-wrap">
+                    <div class="search-form"><input type="text" class="st-default-search-input search-form-input" placeholder="搜索"></div>
+                    <script type="text/javascript">
+                      ! function(t, e, n, s, c, i, o) {
+                        t.SwiftypeObject = c, t[c] = t[c] || function() {
+                          (t[c].q = t[c].q || []).push(arguments)
+                        }, i = e.createElement(n), o = e.getElementsByTagName(n)[0], i.async = 1, i.src = s, o.parentNode.insertBefore(i, o)
+                      }(window, document, "script", "//s.swiftypecdn.com/install/v2/st.js", "_st"), _st("install", "vtmYuDTkoM2QmWR-UbkQ", "2.0.0")
+                    </script>
+                    <style>
+                      .st-ui-injected-overlay-container,
+                      .st-ui-injected-overlay-container :not(select) {
+                        font-family: inherit!important
+                      }
+                      
+                      section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
+                        color: #3b8dbd!important
+                      }
+                      
+                      .st-ui-injected-overlay-container .st-ui-header input[type=text]:focus {
+                        border-bottom: 2px solid #3b8dbd
+                      }
+                      
+                      .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
+                        color: #3b8dbd
+                      }
+                      
+                      .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
+                        border-color: #3b8dbd
+                      }
+                    </style>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+              <h1 class="header"><a class="page-title-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a></h1>
+            </div>
+            <div class="main-body-content">
+              <article id="post-mssql-extension-for-vs-code" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+                  <header class="article-header">
+                    <h1 class="article-title" itemprop="name">使用 Visual Studio Code 的 MSSQL 扩展</h1>
+                  </header>
+                  <div class="article-subtitle"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="article-date"><time datetime="2016-11-29T15:35:37.000Z" itemprop="datePublished">2016-11-29</time></a>
+                    <ul class="article-tag-list">
+                      <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li>
+                      <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mssql-extension/">mssql extension</a></li>
+                    </ul>
+                  </div>
+                  <div class="article-entry" itemprop="articleBody">
+                    <h2 id="使用-Visual-Studio-Code-的-MSSQL-扩展">
+                      <a href="#使用-Visual-Studio-Code-的-MSSQL-扩展" class="headerlink" title="使用 Visual Studio Code 的 MSSQL 扩展"></a>使用 Visual Studio Code 的 MSSQL 扩展</h2>
+                    <blockquote>
+                      <p>环境/工具：Windows 10，<a href="https://code.visualstudio.com/Download" target="_blank" rel="external">Visual Studio Code</a></p>
+                    </blockquote><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/1.gif">
+                    <h3 id="用于开发Microsoft-SQL-Server，Azure-SQL数据库和SQL数据仓库的扩展，功能如下：">
+                      <a href="#用于开发Microsoft-SQL-Server，Azure-SQL数据库和SQL数据仓库的扩展，功能如下：" class="headerlink" title="用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下："></a>用于开发Microsoft SQL Server，Azure SQL数据库和SQL数据仓库的扩展，功能如下：</h3>
+                    <ol>
+                      <li>连接到Microsoft SQL Server，Azure SQL数据库和SQL数据仓库；</li>
+                      <li>创建和管理连接配置文件和最近使用过的连接；</li>
+                      <li>在编写T-SQL脚本是可以体验到：智能提示，T-SQL片段，语法高亮，错误校验；</li>
+                      <li>执行T-SQL脚本；</li>
+                      <li>数据表格可视化；</li>
+                      <li>可以将查询结果保存为json或csv格式；</li>
+                      <li>自定义的扩展选项，包括命令快捷方式等。</li>
+                    </ol>
+                    <h3 id="1-安装并启动-VS-Code">
+                      <a href="#1-安装并启动-VS-Code" class="headerlink" title="1. 安装并启动 VS Code"></a>1. 安装并启动 VS Code</h3>
+                    <h3 id="2-安装-mssql-扩展，然后重启-VS-Code">
+                      <a href="#2-安装-mssql-扩展，然后重启-VS-Code" class="headerlink" title="2. 安装 mssql 扩展，然后重启 VS Code"></a>2. 安装 mssql 扩展，然后重启 VS Code</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/2.png">
+                    <h3 id="3-使用-VS-Code-打开一个扩展名为-sql-的文件，或者使用-ctrl-n-快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。">
+                      <a href="#3-使用-VS-Code-打开一个扩展名为-sql-的文件，或者使用-ctrl-n-快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。" class="headerlink" title="3. 使用 VS Code 打开一个扩展名为 sql 的文件，或者使用 (ctrl+n) 快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。"></a>3. 使用 <code>VS Code</code> 打开一个扩展名为 <code>sql</code> 的文件，或者使用 <code>(ctrl+n)</code> 快捷键创建一个新的编辑器并且把语言模式切换为SQL，mssql命令和功能将在编辑器中以SQL语言模式启用。</h3>
+                    <h3 id="4-通过-F1-或-CTRL-SHIFT-P-快捷键打开命令选项板按，输入-sql-然后选择-MS-SQL-Connect-选项。">
+                      <a href="#4-通过-F1-或-CTRL-SHIFT-P-快捷键打开命令选项板按，输入-sql-然后选择-MS-SQL-Connect-选项。" class="headerlink" title="4. 通过 F1 或 CTRL+SHIFT+P 快捷键打开命令选项板按，输入 sql 然后选择 MS SQL: Connect 选项。"></a>4. 通过 <code>F1</code> 或 <code>CTRL+SHIFT+P</code> 快捷键打开命令选项板按，输入 <code>sql</code> 然后选择 <code>MS SQL: Connect</code> 选项。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/3.png">
+                    <h3
+                      id="5-然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择-Create-Connection-Profile。">
+                      <a href="#5-然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择-Create-Connection-Profile。" class="headerlink" title="5. 然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择 Create Connection Profile。"></a>5. 然后使用一个已有的连接配置或者创建一个新的连接配置，这里选择 <code>Create Connection Profile</code>。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/4.png">
+                      <h3 id="6-然后输入一个数据库服务器地址或者机器名。">
+                        <a href="#6-然后输入一个数据库服务器地址或者机器名。" class="headerlink" title="6. 然后输入一个数据库服务器地址或者机器名。"></a>6. 然后输入一个数据库服务器地址或者机器名。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/5.png">
+                      <h3 id="7-然后输入数据库名称（可选，如果跳过则连接默认数据库）。">
+                        <a href="#7-然后输入数据库名称（可选，如果跳过则连接默认数据库）。" class="headerlink" title="7. 然后输入数据库名称（可选，如果跳过则连接默认数据库）。"></a>7. 然后输入数据库名称（可选，如果跳过则连接默认数据库）。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/6.png">
+                      <h3 id="8-然后选择身份验证类型，SQL-Login-使用数据库账号密码验证，Integrated：集成验证（Windows-身份验证），选择这种验证方式时将会跳过步骤9、10和11。">
+                        <a href="#8-然后选择身份验证类型，SQL-Login-使用数据库账号密码验证，Integrated：集成验证（Windows-身份验证），选择这种验证方式时将会跳过步骤9、10和11。" class="headerlink" title="8. 然后选择身份验证类型，SQL Login :使用数据库账号密码验证，Integrated：集成验证（Windows 身份验证），选择这种验证方式时将会跳过步骤9、10和11。"></a>8. 然后选择身份验证类型，<code>SQL Login</code> :使用数据库账号密码验证，<code>Integrated</code>：集成验证（Windows 身份验证），选择这种验证方式时将会跳过步骤9、10和11。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/7.png">
+                      <h3
+                        id="9-然后输入SQL用户名。">
+                        <a href="#9-然后输入SQL用户名。" class="headerlink" title="9. 然后输入SQL用户名。"></a>9. 然后输入SQL用户名。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/8.png">
+                        <h3 id="10-然后输入SQL密码。">
+                          <a href="#10-然后输入SQL密码。" class="headerlink" title="10. 然后输入SQL密码。"></a>10. 然后输入SQL密码。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/9.png">
+                        <h3 id="11-然后选择是否需要记住密码。">
+                          <a href="#11-然后选择是否需要记住密码。" class="headerlink" title="11. 然后选择是否需要记住密码。"></a>11. 然后选择是否需要记住密码。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/10.png">
+                        <h3 id="12-然后输入该连接配置的名称（可选）。">
+                          <a href="#12-然后输入该连接配置的名称（可选）。" class="headerlink" title="12. 然后输入该连接配置的名称（可选）。"></a>12. 然后输入该连接配置的名称（可选）。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/11.png">
+                        <h3 id="13-完成之后将会出现连接提示信息。">
+                          <a href="#13-完成之后将会出现连接提示信息。" class="headerlink" title="13. 完成之后将会出现连接提示信息。"></a>13. 完成之后将会出现连接提示信息。</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/12.png"> <img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/13.png">
+                        <hr>
+                        <h3 id="打开-文件-gt-首选项-gt-用户设置-可以看到已经创建完成的连接配置，当然也可以直接在这里新增-修改-删除连接配置，更多详细的配置说明请参考-官方文档。">
+                          <a href="#打开-文件-gt-首选项-gt-用户设置-可以看到已经创建完成的连接配置，当然也可以直接在这里新增-修改-删除连接配置，更多详细的配置说明请参考-官方文档。" class="headerlink" title="打开 文件&gt;首选项&gt;用户设置 可以看到已经创建完成的连接配置，当然也可以直接在这里新增/修改/删除连接配置，更多详细的配置说明请参考 官方文档。"></a>打开 <code>文件&gt;首选项&gt;用户设置</code> 可以看到已经创建完成的连接配置，当然也可以直接在这里新增/修改/删除连接配置，更多详细的配置说明请参考 <a href="https://github.com/Microsoft/vscode-mssql" target="_blank" rel="external">官方文档</a>。</h3>
+                        <figure class="highlight js">
+                          <table>
+                            <tr>
+                              <td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td>
+                              <td
+                                class="code"><pre><div class="line"><span class="string">"mssql.connections"</span>: [</div><div class="line">    &#123;</div><div class="line">        <span class="string">"server"</span>: <span class="string">"localhost"</span>,</div><div class="line">        <span class="string">"database"</span>: <span class="string">"NopCommerce3.80"</span>,</div><div class="line">        <span class="string">"authenticationType"</span>: <span class="string">"SqlLogin"</span>,</div><div class="line">        <span class="string">"user"</span>: <span class="string">"sa"</span>,</div><div class="line">        <span class="string">"password"</span>: <span class="string">""</span>,</div><div class="line">        <span class="string">"savePassword"</span>: <span class="literal">true</span>,</div><div class="line">        <span class="string">"profileName"</span>: <span class="string">"NopCommerce3.80"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="string">"server"</span>: <span class="string">"localhost"</span>,</div><div class="line">        <span class="string">"database"</span>: <span class="string">"ReportServerTempDB"</span>,</div><div class="line">        <span class="string">"authenticationType"</span>: <span class="string">"Integrated"</span>,</div><div class="line">        <span class="string">"profileName"</span>: <span class="string">"ReportServerTempDB"</span>,</div><div class="line">        <span class="string">"password"</span>: <span class="string">""</span></div><div class="line">    &#125;</div><div class="line">]</div></pre></td>
+                            </tr>
+                          </table>
+                        </figure>
+                        <h3 id="示例">
+                          <a href="#示例" class="headerlink" title="示例"></a>示例</h3><img title="mssql-extension" alt="mssql-extension" src="http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/14.png"></div>
+                  <footer class="article-footer"><a data-url="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/" data-id="ciw57mimf000nvco0jee84bs6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+                    <div style="display:none"><img id="qrcode" src="http://qr.topscan.com/api.php?text=http://www.lanhouzi.net/"></div>
+                    <script>
+                      ! function(e) {
+                        e("body").on("click", function() {
+                          e(".article-share-box.on").removeClass("on")
+                        }).on("click", ".article-share-link", function(a) {
+                          a.stopPropagation();
+                          var t, i = document.title,
+                            o = e(this),
+                            r = o.attr("data-url"),
+                            s = encodeURIComponent(r),
+                            c = "article-share-box-" + o.attr("data-id"),
+                            n = o.offset();
+                          if (e("#" + c).length) {
+                            if (t = e("#" + c), t.hasClass("on")) return void t.removeClass("on")
+                          } else {
+                            var l = ['<div id="' + c + '" class="article-share-box">', '<input class="article-share-input" readonly value="' + r + '">', '<div class="article-share-links">', '<a href="https://www.facebook.com/sharer.php?u=' + s + '" class="article-share-facebook" target="_blank" title="Facebook"></a>', '<a href="http://service.weibo.com/share/share.php?url=' + s + '" class="article-share-weibo" target="_blank" title="新浪微博"></a>', '<a href="http://share.v.t.qq.com/index.php?c=share&a=index&url=' + s + "&title=" + i + '" class="article-share-tencent-weibo" target="_blank" title="腾讯微博"></a>', '<a href="javascript:$.fancybox.open({href:\'#qrcode\',title:\'打开微信扫一扫，然后分享吧！~\'});" class="article-share-weixin" title="微信"></a>', "</div>", "</div>"].join("");
+                            t = e(l), e("body").append(t);
+                            var h = "http://qr.topscan.com/api.php?text=" + s;
+                            e("#qrcode").attr("src", h)
+                          }
+                          e(".article-share-box.on").hide(), t.css({
+                            top: n.top + 25,
+                            left: n.left
+                          }).addClass("on")
+                        }).on("click", ".article-share-box", function(e) {
+                          e.stopPropagation()
+                        }).on("click", ".article-share-box-input", function() {
+                          e(this).select()
+                        }).on("click", ".article-share-box-link", function(e) {
+                          e.preventDefault(), e.stopPropagation(), window.open(this.href, "article-share-box-window-" + Date.now(), "width=500,height=450")
+                        })
+                      }(jQuery)
+                    </script>
+                  </footer>
+                </div>
+              </article>
+              <section id="comments">
+                <div class="ds-thread" data-thread-key="2016/11/29/mssql-extension-for-vs-code/" data-title="使用 Visual Studio Code 的 MSSQL 扩展" data-url="http://www.lanhouzi.net/2016/11/29/mssql-extension-for-vs-code/"></div>
+                <style>
+                  #ds-thread #ds-reset .ds-textarea-wrapper {
+                    background: 0 0
+                  }
+                  
+                  #ds-reset .ds-avatar img {
+                    box-shadow: none
+                  }
+                  
+                  #ds-reset .ds-gradient-bg {
+                    background: #f7f7f7
+                  }
+                  
+                  #ds-thread #ds-reset li.ds-tab a {
+                    border-radius: 3px
+                  }
+                  
+                  #ds-thread #ds-reset .ds-post-button {
+                    color: #fff;
+                    border: none;
+                    box-shadow: none;
+                    background: #d32;
+                    text-shadow: none;
+                    font-weight: 400;
+                    font-family: 'Microsoft Yahei'
+                  }
+                  
+                  #ds-thread #ds-reset .ds-post-button:hover {
+                    color: #fff;
+                    background: #DE594C
+                  }
+                  
+                  #ds-thread #ds-reset .ds-post-button:active {
+                    background: #d32
+                  }
+                  
+                  #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+                    color: #fff;
+                    background: #d32;
+                    box-shadow: none;
+                    text-shadow: none;
+                    font-weight: 400
+                  }
+                </style>
+              </section>
+            </div>
+          </section>
+          <aside id="sidebar"><a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+            <div class="sidebar-top">
+              <p>关注我 :</p>
+              <ul class="social-links">
+                <li><a class="social-tooltip" title="github" href="https://github.com/lanhouzi" target="_blank"><i class="icon fa fa-github"></i></a></li>
+                <li><a class="social-tooltip" title="facebook" href="/" target="_blank"><i class="icon fa fa-facebook"></i></a></li>
+                <li><a class="social-tooltip" title="tencent-weibo" href="http://t.qq.com/czieboy" target="_blank"><i class="icon fa fa-tencent-weibo"></i></a></li>
+                <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i class="icon fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+            <nav id="article-nav"><a href="/2016/09/21/highchart-linear-gradient/" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">上一篇</strong><p class="article-nav-title">给 Highcharts 图表的颜色设置线性渐变</p><i class="icon fa fa-chevron-left" id="icon-chevron-left"></i></a></nav>
+            <div
+              class="widgets-container">
+              <div class="widget-wrap">
+                <h3 class="widget-title">最新文章</h3>
+                <div class="widget">
+                  <ul id="recent-post">
+                    <li>
+                      <div class="item-thumbnail"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/mssql-ext/1.gif)" alt="使用 Visual Studio Code 的 MSSQL 扩展" class="thumbnail-image"></span></a></div>
+                      <div
+                        class="item-inner">
+                        <p class="item-category"><a class="article-category-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a></p>
+                        <p class="item-title"><a href="/2016/11/29/mssql-extension-for-vs-code/" class="title">使用 Visual Studio Code 的 MSSQL 扩展</a></p>
+                        <p class="item-date"><time datetime="2016-11-29T15:35:37.000Z" itemprop="datePublished">2016-11-29</time></p>
+                </div>
+                </li>
+                <li>
+                  <div class="item-thumbnail"><a href="/2016/09/21/highchart-linear-gradient/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/folder/imageName.png)" alt="给 Highcharts 图表的颜色设置线性渐变" class="thumbnail-image"></span></a></div>
+                  <div
+                    class="item-inner">
+                    <p class="item-category"><a class="article-category-link" href="/categories/Highcharts/">Highcharts</a></p>
+                    <p class="item-title"><a href="/2016/09/21/highchart-linear-gradient/" class="title">给 Highcharts 图表的颜色设置线性渐变</a></p>
+                    <p class="item-date"><time datetime="2016-09-21T15:43:58.000Z" itemprop="datePublished">2016-09-21</time></p>
+              </div>
+              </li>
+              <li>
+                <div class="item-thumbnail"><a href="/2016/09/15/a-clock-powered-by-highcharts/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/tools/highcharts-clock.png)" alt="The Highcharts Clock" class="thumbnail-image"></span></a></div>
+                <div
+                  class="item-inner">
+                  <p class="item-category"><a class="article-category-link" href="/categories/Highcharts/">Highcharts</a></p>
+                  <p class="item-title"><a href="/2016/09/15/a-clock-powered-by-highcharts/" class="title">The Highcharts Clock</a></p>
+                  <p class="item-date"><time datetime="2016-09-15T15:36:25.000Z" itemprop="datePublished">2016-09-15</time></p>
+        </div>
+        </li>
+        <li>
+          <div class="item-thumbnail"><a href="/2016/08/21/publish-a-website-by-web_deploy/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/iisstart.png)" alt="使用 Web Deploy 工具 发布站点到 IIS" class="thumbnail-image"></span></a></div>
+          <div class="item-inner">
+            <p class="item-category"><a class="article-category-link" href="/categories/IIS/">IIS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IIS/Web-Deploy/">Web Deploy</a></p>
+            <p class="item-title"><a href="/2016/08/21/publish-a-website-by-web_deploy/" class="title">使用 Web Deploy 工具 发布站点到 IIS</a></p>
+            <p class="item-date"><time datetime="2016-08-20T17:38:39.000Z" itemprop="datePublished">2016-08-21</time></p>
+          </div>
+        </li>
+        <li>
+          <div class="item-thumbnail"><a href="/2016/04/12/windows-remote-connection-unbutu-15.10-fixed/" class="thumbnail"><span style="background-image:url(http://lanhouzi.qiniudn.com/hexo/blog/ubuntu_kylin_15.10_13.png)" alt="Windows 远程桌面连接 Unbutu Kylin 15.10 补充" class="thumbnail-image"></span></a></div>
+          <div
+            class="item-inner">
+            <p class="item-category"><a class="article-category-link" href="/categories/Unbutu/">Unbutu</a></p>
+            <p class="item-title"><a href="/2016/04/12/windows-remote-connection-unbutu-15.10-fixed/" class="title">Windows 远程桌面连接 Unbutu Kylin 15.10 补充</a></p>
+            <p class="item-date"><time datetime="2016-04-11T16:35:02.000Z" itemprop="datePublished">2016-04-12</time></p>
+      </div>
+      </li>
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list">
+        <li class="category-list-item"><a class="category-list-link" href="/categories/NET/">.NET</a><span class="category-list-count">1</span></li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">2</span></li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/IIS/">IIS</a><span class="category-list-count">2</span>
+          <ul class="category-list-child">
+            <li class="category-list-item"><a class="category-list-link" href="/categories/IIS/Web-Deploy/">Web Deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a class="category-list-link" href="/categories/IIS/负载均衡/">负载均衡</a><span class="category-list-count">1</span></li>
+          </ul>
+        </li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/Unbutu/">Unbutu</a><span class="category-list-count">2</span></li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/Visual-Studio-Code/">Visual Studio Code</a><span class="category-list-count">1</span></li>
+        <li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list">
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li>
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li>
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li>
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li>
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">4</span></li>
+        <li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list">
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/NET/">.NET</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/Blue-Monkey/">Blue Monkey</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/Highcharts/">Highcharts</a><span class="tag-list-count">2</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/IIS/">IIS</a><span class="tag-list-count">2</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/Unbutu/">Unbutu</a><span class="tag-list-count">2</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Deploy/">Web Deploy</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/mssql-extension/">mssql extension</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝猴子/">蓝猴子</a><span class="tag-list-count">1</span></li>
+        <li class="tag-list-item"><a class="tag-list-link" href="/tags/负载均衡/">负载均衡</a><span class="tag-list-count">1</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tags/NET/" style="font-size:10px">.NET</a> <a href="/tags/Blue-Monkey/" style="font-size:10px">Blue Monkey</a> <a href="/tags/CSS3/" style="font-size:10px">CSS3</a> <a href="/tags/Highcharts/" style="font-size:20px">Highcharts</a> <a href="/tags/IIS/"
+        style="font-size:20px">IIS</a> <a href="/tags/Unbutu/" style="font-size:20px">Unbutu</a> <a href="/tags/Visual-Studio-Code/" style="font-size:10px">Visual Studio Code</a> <a href="/tags/Web-Deploy/" style="font-size:10px">Web Deploy</a> <a href="/tags/hexo/"
+        style="font-size:10px">hexo</a> <a href="/tags/mssql-extension/" style="font-size:10px">mssql extension</a> <a href="/tags/蓝猴子/" style="font-size:10px">蓝猴子</a> <a href="/tags/负载均衡/" style="font-size:10px">负载均衡</a></div>
+  </div>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget"><img src="http://lanhouzi.qiniudn.com/weixin_qrcode.png" width="220px" alt="lanhouzi"></div>
+  </div>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        <li><a href="http://www.asp.net/" target="_blank">ASP.NET</a></li>
+        <li><a href="http://www.hcharts.cn/" target="_blank">HighCharts中文网</a></li>
+        <li><a href="https://www.hackster.io/" target="_blank">Hackster.io</a></li>
+        <li><a href="https://dev.windows.com/zh-cn/iot/" target="_blank">Windows IoT</a></li>
+        <li><a href="http://sentsin.com/" target="_blank">贤心</a></li>
+        <li><a href="http://www.peng8.net/" target="_blank">Peng8</a></li>
+        <li><a href="https://www.zybuluo.com/" target="_blank">作业部落</a></li>
+        <li><a href="http://ear.duomi.com/" target="_blank">邻居的耳朵</a></li>
+        <li><a href="http://huaban.com/" target="_blank">花瓣</a></li>
+        <li><a href="http://wanimal.lofter.com/" target="_blank">WANIMAL</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  </aside>
+  </div>
+  </div>
+  </div>
+  <footer id="footer">
+    <div class="container">
+      <div class="container-inner"><a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+        <div class="credit">
+          <p>&copy; 2016 Blue Monkey</p>
+          <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+          <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    var duoshuoQuery = {
+      short_name: "lanhouzi"
+    };
+    ! function() {
+      var t = document.createElement("script");
+      t.type = "text/javascript", t.async = !0, t.src = ("https:" == document.location.protocol ? "https:" : "http:") + "//static.duoshuo.com/embed.js", t.charset = "UTF-8", (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(t)
+    }()
+  </script>
+  <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+  <script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="/vendor/scrollLoading/main.js"></script>
+  <script src="/js/main.js"></script>
+  </div>
+</body>
